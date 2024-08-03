@@ -1,21 +1,22 @@
 # FundTransfer
 
-FundTransfer is a simple smart contract project that demonstrates basic fund transfer operations on the Ethereum blockchain. This project is built using Solidity for smart contract development, Hardhat for local Ethereum development, Ethers.js for interacting with the Ethereum network, and deployed on the Sepolia testnet.
+FundTransfer is a Solidity-based smart contract project designed to facilitate fund transfers on the Ethereum blockchain. Utilizing Hardhat for development, Chainlink Data Feeds for real-time USD conversion, and Ethers.js for blockchain interactions, this project is deployed on the Sepolia testnet.
 
 ## Project Overview
 
-The FundTransfer project allows you to:
+The FundTransfer smart contract allows users to:
 
--   Deploy a smart contract to the Sepolia testnet.
--   Transfer funds between addresses.
--   View the balance of an address.
+1. Deploy the contract to the Sepolia testnet.
+2. Add funds to the contract with a minimum threshold of 50 USD.
+3. Equally distribute the funds among a list of provided addresses.
 
-## Technologies Used
+## Features
 
--   **Solidity**: Programming language for writing smart contracts.
--   **Hardhat**: Development environment to compile, deploy, test, and debug Solidity contracts.
--   **Ethers.js**: Library for interacting with the Ethereum blockchain.
--   **Sepolia Testnet**: Ethereum test network used for deployment and testing.
+-   **Solidity Smart Contracts**: Written in Solidity for secure and efficient fund management.
+-   **Chainlink Data Feeds**: Used to convert and validate the USD amount.
+-   **Hardhat**: Provides a robust development environment for compiling, deploying, and testing.
+-   **Ethers.js**: Facilitates interaction with the Ethereum blockchain.
+-   **Interfaces and Libraries**: Utilized to ensure modular and reusable code.
 
 ## Getting Started
 
@@ -24,6 +25,7 @@ The FundTransfer project allows you to:
 -   Node.js (v14 or higher)
 -   npm (v6 or higher)
 -   Hardhat
+-   An Infura or Alchemy API key for Sepolia
 
 ### Installation
 
@@ -42,36 +44,28 @@ The FundTransfer project allows you to:
 
 3. Configure Hardhat:
 
-    Ensure that your Hardhat config file (`hardhat.config.js`) is set up for the Sepolia testnet. You can use the following sample configuration:
+    Update the `hardhat.config.js` file with your Sepolia network settings and Chainlink API credentials.
 
-    ```javascript
-    require("@nomiclabs/hardhat-ethers")
-
-    module.exports = {
-        solidity: "0.8.4",
-        networks: {
-            sepolia: {
-                url: `https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID`,
-                accounts: [`0x${YOUR_PRIVATE_KEY}`],
-            },
-        },
-    }
-    ```
-
-    Replace `YOUR_INFURA_PROJECT_ID` and `YOUR_PRIVATE_KEY` with your own Infura project ID and private key.
-
-### Usage
-
-1. Compile the smart contract:
+4. Compile the smart contract:
 
     ```sh
     npx hardhat compile
     ```
 
-2. Deploy the smart contract to Sepolia:
+5. Deploy the smart contract:
 
     ```sh
     npx hardhat run scripts/deploy.js --network sepolia
     ```
 
-3. Interact with the deployed contract using a script or through a frontend application. Check out the `scripts` directory for examples.
+6. Add funds and distribute:
+
+    Use the provided scripts or build a frontend interface to interact with the contract, ensuring that a minimum of 50 USD is added and then distributed equally among the specified addresses.
+
+## Testing
+
+Run the tests using:
+
+```sh
+npx hardhat test
+```
