@@ -61,11 +61,3 @@ The FundTransfer smart contract allows users to:
 6. Add funds and distribute:
 
     Use the provided scripts or build a frontend interface to interact with the contract, ensuring that a minimum of 50 USD is added and then distributed equally among the specified addresses.
-
-## Testing
-
-Run the tests using:
-
-```sh
-npx hardhat test
-```
