@@ -75,11 +75,3 @@ The FundTransfer project allows you to:
     ```
 
 3. Interact with the deployed contract using a script or through a frontend application. Check out the `scripts` directory for examples.
-
-## Testing
-
-Run the tests using:
-
-```sh
-npx hardhat test
-```
