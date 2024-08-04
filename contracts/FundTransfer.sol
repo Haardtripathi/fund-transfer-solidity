@@ -21,8 +21,8 @@ contract FundTransfer {
         peopleList = _peopleList;
     }
 
-    function currentBalance() public view returns (uint256) {
-        return address(this).balance;
+    function currentBalance() public view returns (uint) {
+        return address(this).balance; // Example implementation
     }
 
     function divideFund() public payable {

@@ -19,7 +19,8 @@ module.exports = {
     sepolia:{
       url:SEPOLIA_RPC_URL,
       accounts:[PRIVATE_KEY],
-      chainId:11155111
+      chainId:11155111,
+      
     },
   },
   // gasReporter:{

@@ -6,7 +6,7 @@ async function main(){
     const FundTransferFactory=await ethers.getContractFactory("FundTransfer")
     console.log("Deploying contract...")
     const FundTransfer=await FundTransferFactory.deploy()
-    console.log(`Contract deployed by ${FundTransfer.target}`)
+    console.log(`Contract deployed at ${FundTransfer.target}`)
     const currentBalanceofDeployer=await getBalance('0x618F3FE9CaC17eFA1034040f7b74D9D66d86D843')
     console.log(`Balance of deployer before funding : ${currentBalanceofDeployer}`)
     const currentAddress1Balance=await getBalance('0x73dbF569a3f1c69f452749ca2EC28D1b1Da3b1aC')
@@ -16,10 +16,8 @@ async function main(){
 
 
     console.log(`Adding funds to contract balance...\n`)
-    const addFund=await FundTransfer.fund({value:ethers.parseEther("0.02")})
+    const addFund=await FundTransfer.fund({value:ethers.parseEther("0.02"),gasPrice:ethers.parseUnits('10', 'gwei')})
     await addFund.wait()
-    const currentContractBalance=await FundTransfer.currentBalance()
-    console.log(`Current contract balance:${currentContractBalance}`)
 
     console.log("Adding people to PeopleList...\n")
     const addPeople=await FundTransfer.addToPeopleList(['0x73dbF569a3f1c69f452749ca2EC28D1b1Da3b1aC','0xC1E6e8443A90524BeB43986a72C40609F0CB535F'],{ gasPrice: ethers.parseUnits('10', 'gwei') })
