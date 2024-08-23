@@ -29,6 +29,10 @@ contract FundTransfer {
         return address(x).balance;
     }
 
+    function getListLength() public view returns (uint) {
+        return peopleList.length;
+    }
+
     function divideFund() public payable {
         uint256 divideValue = (address(this).balance / peopleList.length);
         for (uint256 x; x < peopleList.length; x++) {
