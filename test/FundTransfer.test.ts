@@ -54,6 +54,19 @@ describe("FundTransfer", function () {
       const l = await fundTransfer.getListLength()
       expect(l).to.be.gt(0)
     })
+  })
+
+  describe("divide funds", function () {
+    beforeEach(async function () {
+      const divideFunds = await fundTransfer.divideFund({ gasPrice: ethers.utils.parseUnits('10', 'gwei') })
+      await divideFunds.wait()
+    })
+
+    it("balance must be empty after dividing", async function () {
+      let contractBalance: bigint = await fundTransfer.currentBalance()
+      let cB = Number(contractBalance)
+      assert.equal(cB, 0)
+    })
 
 
   })
